@@ -7,6 +7,9 @@ const request = axios.create({
 })
 
 request.interceptors.request.use(function (config) {
+  if (config.method === 'post' && config.data) {
+    config.headers = { 'Content-Type': 'application/x-www-form-urlencoded' }
+  }
   return config
 }, function (error) {
   // 对请求错误做些什么

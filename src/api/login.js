@@ -15,5 +15,6 @@ export const userIdentity = () => {
 export const changeSchool = (id) => {
   return request.post('/index/changeschool', {
     // 机构id
-    schld: id })
+    schld: id }
+  )
 }
