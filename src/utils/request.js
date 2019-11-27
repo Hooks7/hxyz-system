@@ -1,4 +1,5 @@
 import axios from 'axios'
+axios.defaults.withCredentials = true
 
 const request = axios.create({
   timeout: 10000,

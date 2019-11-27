@@ -1,26 +1,23 @@
 <template>
   <div class="login">
-    <!-- <img
-      src="https://hxauth.xiaoyansuo.cn/qr?url=https%3A%2F%2Fopen.weixin.qq.com%2Fconnect%2Foauth2%2Fauthorize%3Fappid%3Dwx55a3ba6f514abcb4%26redirect_uri%3Dhttps%253A%252F%252Fhxauth.xiaoyansuo.cn%252Fweixin%252Faccount%252Fqrlogin%26response_type%3Dcode%26scope%3Dsnsapi_userinfo%26state%3Df6961d3b08002471c2b4f3317e3d8b44%23wechat_redirect"
-      class="qr"
-    /> -->
-
+    <i-button type="primary" shape="circle" icon="ios-search"></i-button>
   </div>
 </template>
 
 <script>
-import { userIdentity } from '@/api/login.js'
+import { changeSchool } from '@/api/login.js'
 export default {
   data () {
-    return {
-
-    }
+    return {}
   },
 
   methods: {
-    async login () {
-      await userIdentity()
-      // location.replace('http://www.baidu.com')
+    login () {
+      setTimeout(async () => {
+        const res = await changeSchool(12)
+        // await userIdentity()
+        console.log(res)
+      }, 10)
     }
   },
   created () {
