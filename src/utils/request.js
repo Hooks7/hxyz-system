@@ -2,12 +2,10 @@ import axios from 'axios'
 
 const request = axios.create({
   timeout: 10000,
-  baseURL: ''
+  baseURL: 'https://hxtch.xiaoyansuo.cn'
 })
 
 request.interceptors.request.use(function (config) {
-  // 在发送请求之前做些什么，例如加入token
-
   return config
 }, function (error) {
   // 对请求错误做些什么
