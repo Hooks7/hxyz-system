@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { changeSchool } from '@/api/login.js'
+import { userIdentity } from '@/api/login.js'
 export default {
   data () {
     return {}
@@ -14,7 +14,7 @@ export default {
   methods: {
     login () {
       setTimeout(async () => {
-        const res = await changeSchool(12)
+        const res = await userIdentity()
         // await userIdentity()
         console.log(res)
       }, 10)

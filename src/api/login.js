@@ -7,7 +7,7 @@ export const homepageInformation = () => {
 
 // 获取用户所有身份
 export const userIdentity = () => {
-  return request.get('​/index​/usertypes')
+  return request.get('/index/usertypes')
 }
 
 // 更改学校接口
