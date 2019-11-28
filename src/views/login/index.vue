@@ -5,19 +5,17 @@
 </template>
 
 <script>
-import { userIdentity } from '@/api/login.js'
+import { userIdentity } from '@/api'
 export default {
   data () {
     return {}
   },
 
   methods: {
-    login () {
-      setTimeout(async () => {
-        const res = await userIdentity()
-        // await userIdentity()
-        console.log(res)
-      }, 10)
+    async login () {
+      const res = await userIdentity()
+      // await userIdentity()
+      console.log(res)
     }
   },
   created () {
