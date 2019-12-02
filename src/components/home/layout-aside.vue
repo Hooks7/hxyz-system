@@ -11,6 +11,7 @@
       router
     >
       <el-menu-item :index="item.route" v-for="item in navigationBar" :key="item.route">
+        <i :class="item.class"></i>
         <span>{{item.name}}</span>
       </el-menu-item>
     </el-menu>
@@ -24,17 +25,17 @@ export default {
     return {
       collapse: false,
       navigationBar: [
-        { name: '首页', route: '/home/main' },
-        { name: '发送通知', route: '/home/sendNotification' },
-        { name: '收发作业', route: '/home/homeWork' },
-        { name: '资料管理', route: '/home/data' },
-        { name: '课程管理', route: '/home/course' },
-        { name: '老师管理', route: '/home/teacher' },
-        { name: '教学场地管理', route: '/home/classroom' },
-        { name: '班级管理', route: '/home/class' },
-        { name: '机构信息设置', route: '/home/institutions' },
-        { name: '班级类型管理', route: '/home/classType' },
-        { name: '学期设置', route: '/home/termSet' }
+        { name: '首页', route: '/home/main', class: 'el-icon-star-off' },
+        { name: '发送通知', route: '/home/sendNotification', class: 'el-icon-goods' },
+        { name: '收发作业', route: '/home/homeWork', class: 'el-icon-plus' },
+        { name: '资料管理', route: '/home/data', class: 'el-icon-star-off' },
+        { name: '课程管理', route: '/home/course', class: 'el-icon-plus' },
+        { name: '老师管理', route: '/home/teacher', class: 'el-icon-star-off' },
+        { name: '教学场地管理', route: '/home/classroom', class: 'el-icon-star-off' },
+        { name: '班级管理', route: '/home/class', class: 'el-icon-star-off' },
+        { name: '机构信息设置', route: '/home/institutions', class: 'el-icon-star-off' },
+        { name: '班级类型管理', route: '/home/classType', class: 'el-icon-star-off' },
+        { name: '学期设置', route: '/home/termSet', class: 'el-icon-star-off' }
       ]
     }
   },

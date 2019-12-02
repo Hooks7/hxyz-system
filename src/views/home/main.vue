@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-tab></el-tab>
+    <el-tab></el-tab>首頁
   </div>
 </template>
 
