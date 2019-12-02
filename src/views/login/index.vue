@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <i-button type="primary" shape="circle" icon="ios-search"></i-button>
+    <el-button type="success" plain @click="$router.push('/home/main')">按钮</el-button>
   </div>
 </template>
 

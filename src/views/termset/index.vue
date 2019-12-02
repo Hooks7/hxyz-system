@@ -1,15 +1,12 @@
 <template>
   <div>
-      学期设置
+    <el-tab></el-tab>学期设置
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style>
-
 </style>

@@ -1,65 +1,88 @@
 <template>
-  <el-tabs v-model="editableTabsValue" type="card" editable @edit="handleTabsEdit">
-    <el-tab-pane
-      :key="item.name"
-      v-for="item in editableTabs"
-      :label="item.title"
-      :name="item.name"
-    >{{item.content}}</el-tab-pane>
-  </el-tabs>
+  <div>
+    <el-tabs
+      v-model="activeIndex"
+      type="card"
+      closable
+      @tab-remove="tabRemove"
+      @tab-click="tabClick"
+      v-if="options.length"
+    >
+      <el-tab-pane v-for="item in options" :key="item.name" :label="item.name" :name="item.route"></el-tab-pane>
+    </el-tabs>
+  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      editableTabsValue: '2',
-      editableTabs: [
-        {
-          title: 'Tab 1',
-          name: '1',
-          content: 'Tab 1 content'
-        },
-        {
-          title: 'Tab 2',
-          name: '2',
-          content: 'Tab 2 content'
-        }
-      ],
-      tabIndex: 2
+      route: ''
     }
   },
   methods: {
-    handleTabsEdit (targetName, action) {
-      if (action === 'add') {
-        let newTabName = ++this.tabIndex + ''
-        this.editableTabs.push({
-          title: 'New Tab',
-          name: newTabName,
-          content: 'New Tab content'
-        })
-        this.editableTabsValue = newTabName
+    tabClick (tab) {
+      let path = this.activeIndex
+      this.$router.push({ path: `/home${path}` })
+    },
+    tabRemove (targetName) {
+      // 首页不可删除
+      if (targetName === '/main') {
+        return
       }
-      if (action === 'remove') {
-        let tabs = this.editableTabs
-        let activeName = this.editableTabsValue
-        if (activeName === targetName) {
-          tabs.forEach((tab, index) => {
-            if (tab.name === targetName) {
-              let nextTab = tabs[index + 1] || tabs[index - 1]
-              if (nextTab) {
-                activeName = nextTab.name
-              }
-            }
-          })
+      this.$store.commit('delete_tabs', targetName)
+      if (this.activeIndex === targetName) {
+        // 设置当前激活的路由
+        if (this.options && this.options.length >= 1) {
+          this.$store.commit(
+            'set_active_index',
+            this.options[this.options.length - 1].route
+          )
+          this.$router.push({ path: `/home${this.activeIndex}` })
+        } else {
+          this.$router.push({ path: '/home/main' })
         }
-
-        this.editableTabsValue = activeName
-        this.editableTabs = tabs.filter(tab => tab.name !== targetName)
       }
     }
+  },
+
+  watch: {
+    route (to) {
+      let flag = false
+      for (let option of this.options) {
+        if (option.name === to.name) {
+          flag = true
+          this.$store.commit('set_active_index', '/' + to.path.split('/')[2])
+          break
+        }
+      }
+      if (!flag && to.path !== '/home/main') {
+        this.$store.commit('add_tabs', {
+          route: '/' + to.path.split('/')[2],
+          name: to.name
+        })
+        this.$store.commit('set_active_index', '/' + to.path.split('/')[2])
+      }
+    }
+  },
+  computed: {
+    options () {
+      return this.$store.state.options
+    },
+    activeIndex: {
+      get () {
+        return this.$store.state.activeIndex
+      },
+      set (val) {
+        this.$store.commit('set_active_index', val)
+      }
+    }
+  },
+  mounted () {
+    this.route = this.$route
   }
 }
 </script>
+
 <style>
 </style>

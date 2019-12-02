@@ -8,7 +8,7 @@
       <!-- 图片设置 -->
       <img :src="user.photo ? user.photo :defaultImg" alt />
       <!-- 下拉模板 -->
-      <el-dropdown trigger="click" >
+      <el-dropdown trigger="click" @command=" handleCommand ">
         <span class="el-dropdown-link">
           王老师
           <i class="el-icon-arrow-down el-icon--right"></i>
@@ -43,8 +43,24 @@ export default {
         this.currentClass === 'el-icon-s-fold'
           ? 'el-icon-s-unfold'
           : 'el-icon-s-fold'
+    },
+    // 下拉事件
+    handleCommand (command) {
+    // 个人信息
+      if (command === 'account') {
+        this.$router.push('/home/account')
+      // git地址
+      } else if (command === 'git') {
+        window.location.href = 'https://github.com'
+      // 退出
+      } else {
+        this.$router.push('/login')
+        window.location.reload()
+        window.localStorage.clear() // 清除本地在游览器上所有前端缓存
+      }
     }
   }
+
 }
 </script>
 

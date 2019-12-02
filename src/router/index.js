@@ -19,37 +19,48 @@ const routes = [{
   name: 'home',
   component: Home,
   children: [{
-    path: '',
+    path: 'main',
+    name: '首页',
     component: Main
-  }, { // 发送通知
+  }, {
     path: 'sendNotification',
+    name: '发送通知',
     component: () => import('../views/sendnotification')
-  }, { // 收发作业
+  }, {
     path: 'homeWork',
+    name: '收发作业',
     component: () => import('../views/homework')
-  }, { // 资料管理
+  }, {
     path: 'data',
+    name: '资料管理',
     component: () => import('../views/data')
-  }, { // 课程管理
+  }, {
     path: 'course',
+    name: '课程管理',
     component: () => import('../views/course')
-  }, { // 老师管理
+  }, {
     path: 'teacher',
+    name: '老师管理',
     component: () => import('../views/teacher')
-  }, { // 教学场地管理
+  }, {
     path: 'classroom',
+    name: '教学场地管理',
     component: () => import('../views/classroom')
-  }, { // 班级管理
+  }, {
     path: 'class',
+    name: '班级管理',
     component: () => import('../views/class')
-  }, { // 机构信息设置
+  }, {
     path: 'institutions',
+    name: '机构信息设置',
     component: () => import('../views/institutions')
-  }, { // 班级类型管理
+  }, {
     path: 'classType',
+    name: '班级类型管理',
     component: () => import('../views/classType')
-  }, { // 学期设置
+  }, {
     path: 'termSet',
+    name: '学期设置',
     component: () => import('../views/termset')
   }
 

@@ -1,5 +1,6 @@
 <template>
   <div>
+       <el-tab></el-tab>
       班级类型
   </div>
 </template>

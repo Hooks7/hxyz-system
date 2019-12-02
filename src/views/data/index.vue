@@ -1,13 +1,12 @@
 <template>
-  <div>资料管理</div>
+  <div>
+    <el-tab></el-tab>资料管理
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style>
-
 </style>
