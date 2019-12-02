@@ -19,9 +19,8 @@
           <el-dropdown-item command="out">退出</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
-          <span>@琴岛学院</span>
+      <span>@琴岛学院</span>
     </el-col>
-
   </el-row>
 </template>
 
@@ -46,21 +45,16 @@ export default {
     },
     // 下拉事件
     handleCommand (command) {
-    // 个人信息
       if (command === 'account') {
-        this.$router.push('/home/account')
-      // git地址
       } else if (command === 'git') {
-        window.location.href = 'https://github.com'
-      // 退出
+        // 退出
       } else {
         this.$router.push('/login')
         window.location.reload()
-        window.localStorage.clear() // 清除本地在游览器上所有前端缓存
+        window.localStorage.clear()
       }
     }
   }
-
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <div class="layout-aside">
     <el-menu
+    :default-active="$route.path"
       class="el-menu-vertical-demo"
       background-color="#042e5c"
       text-color="#ccc"
@@ -9,7 +10,7 @@
       :collapse-transition="false"
       router
     >
-      <el-menu-item :index="item.route" v-for="item in navigationBar" :key="item.name">
+      <el-menu-item :index="item.route" v-for="item in navigationBar" :key="item.route">
         <span>{{item.name}}</span>
       </el-menu-item>
     </el-menu>
@@ -52,7 +53,6 @@ export default {
       this.$store.commit('set_active_index', '/main')
       this.$router.push('/home/main')
     }
-    // this.GetMenuList()
   },
   created () {
     eventBus.$on('collopseOrClose', () => {
