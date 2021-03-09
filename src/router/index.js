@@ -7,17 +7,10 @@ import Main from '@/views/home/main'
 Vue.use(VueRouter)
 
 const routes = [{
-  path: '/login',
-  name: 'login',
-  component: Login
-}, {
   path: '/',
-  redirect: '/login'
-},
-{
-  path: '/home',
   name: 'home',
   component: Home,
+  redirect: 'main',
   children: [{
     path: 'main',
     name: '首页',

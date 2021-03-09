@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <el-tab></el-tab>首頁
+    首頁
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {}
 </script>
 
-<style lang='less' scoped>
+<style lang="less" scoped>
 .home {
   width: 100%;
   height: 100%;

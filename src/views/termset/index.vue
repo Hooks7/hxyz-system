@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <el-tab></el-tab>学期设置
+  <div>学期设置
   </div>
 </template>
 

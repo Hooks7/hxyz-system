@@ -1,6 +1,5 @@
 <template>
 <div>
-         <el-tab></el-tab>
         收发作业
 
 </div>

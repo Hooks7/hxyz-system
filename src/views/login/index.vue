@@ -1,6 +1,6 @@
 <template>
   <div class="login">
-    <el-button type="success" plain @click="$router.push('/home/main')">按钮</el-button>
+    <el-button type="success" plain @click="$router.push('/main')">按钮</el-button>
   </div>
 </template>
 

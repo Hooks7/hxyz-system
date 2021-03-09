@@ -6,5 +6,8 @@ module.exports = {
         '@': path.resolve('src')
       }
     }
-  }
+  },
+
+  lintOnSave: false
+
 }

@@ -1,6 +1,5 @@
 <template>
   <div>
-    <el-tab></el-tab>
     发送通知
   </div>
 </template>

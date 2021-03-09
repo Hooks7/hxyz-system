@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <el-tab></el-tab>资料管理
+  <div>资料管理
   </div>
 </template>
 
