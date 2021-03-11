@@ -2,7 +2,7 @@
   <div>
     <el-row type="flex" class="layout-header">
       <el-col :span="18" class="left-header">
-        <i @click="openOrClose" :class="currentClass"></i>
+        <i @click="openOrClose" :class="currentClass" />
         <span>首页</span>
       </el-col>
       <el-col :span="5" class="layout-right">
@@ -12,7 +12,7 @@
         <el-dropdown trigger="click" @command="handleCommand">
           <span class="el-dropdown-link">
             王老师
-            <i class="el-icon-arrow-down el-icon--right"></i>
+            <i class="el-icon-arrow-down el-icon--right" />
           </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="account">个人信息</el-dropdown-item>
@@ -23,24 +23,24 @@
         <span>@琴岛学院</span>
       </el-col>
     </el-row>
-    <el-tab />
+    <LayoutTab />
   </div>
 </template>
 
 <script>
-import eventBus from '../../utils/eventBus'
-import elTab from '../common/el-tab.vue'
+import eventBus from '@/utils/eventBus'
+import LayoutTab from './layout-tab'
 export default {
-  components: { elTab },
-  data () {
+  components: { LayoutTab },
+  data() {
     return {
       user: {},
-      defaultImg: require('../../assets/img/avatar.jpg'),
-      currentClass: 'el-icon-s-fold'
+      defaultImg: require('@/assets/img/avatar.jpg'),
+      currentClass: 'el-icon-s-fold',
     }
   },
   methods: {
-    openOrClose () {
+    openOrClose() {
       // 侧边栏伸缩
       eventBus.$emit('collopseOrClose')
       this.currentClass =
@@ -49,7 +49,7 @@ export default {
           : 'el-icon-s-fold'
     },
     // 下拉事件
-    handleCommand (command) {
+    handleCommand(command) {
       if (command === 'account') {
       } else if (command === 'git') {
         // 退出
@@ -58,8 +58,8 @@ export default {
         window.location.reload()
         window.localStorage.clear()
       }
-    }
-  }
+    },
+  },
 }
 </script>
 

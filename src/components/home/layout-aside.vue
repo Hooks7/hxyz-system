@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import eventBus from '../../utils/eventBus'
+import eventBus from '@/utils/eventBus'
 export default {
   data() {
     return {
@@ -36,19 +36,15 @@ export default {
     },
   },
   mounted() {
-    // 刷新时以当前路由做为tab加入tabs
+    // 刷新时以当前路由做为tab加入tabs(首页保留)
     this.$store.commit('add_tabs', { route: '/main', name: '首页' })
 
-    if (this.$route.path.indexOf('main') === -1) {
-      this.$store.commit('add_tabs', {
-        route: this.$route.path,
-        name: this.$route.name,
-      })
-      this.$store.commit('set_active_index', this.$route.path)
-    } else {
-      this.$store.commit('set_active_index', '/main')
-      this.$router.push('/main')
-    }
+    if (this.$route.path.indexOf('/main') != -1) return
+    this.$store.commit('add_tabs', {
+      route: this.$route.path,
+      name: this.$route.name,
+    })
+    this.$store.commit('set_active_index', this.$route.path)
   },
   created() {
     eventBus.$on('collopseOrClose', () => {
